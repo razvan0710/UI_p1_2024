@@ -1,0 +1,12 @@
+component - (data, js logic, jsx) 
+data is parsing to componets as a props
+
+1. state - state is a data that is changing in the component
+
+UI - split into componets tree
+Static version of react (without states)
+
+2. Local state - state that is changing in the component vs 
+    Global state - state that is changing in the app
+
+3. Derived state- state that is calculated from other state (don't use useState when is not necessary)

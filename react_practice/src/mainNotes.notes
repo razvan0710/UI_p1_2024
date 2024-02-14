@@ -1,0 +1,186 @@
+1. Props, immutability, and One_way data flow
+component - (data, js logic, jsx)
+
+2. Rendering lists and conditional content
+{
+    objects.map((object, index) => (
+        <div key={index}>
+            <h1>{object.title}</h1>
+            <p>{object.content}</p>
+        </div>
+    ))
+}
+
+- and this is a functional component
+
+function Object(props){
+    return(
+        <div className="pizza">
+            <h1>{props.title}</h1>
+            <p>{props.content}</p>
+        </div>
+    )
+}
+
+- and an arrow function component
+
+()=>(
+    <Object title="title" content="content" />
+)
+
+3. Conditional rendering - with && operator, Ternaries, and with multiple returns
+
+condition (true/false) ? (if true) : (if false)
+
+4. React fragments - to avoid unnecessary divs
+
+<>
+    <p>1</p>
+    <ul>
+    </ul>
+</>
+
+--------------------------------------------------------------------------------------
+// JS Related
+
+// 1- js hoisting
+// comportament implicit in JS de a muta declararea variabilelor si a functiilor la inceputul scopului
+// ex: poti sa apelezi functia si apoi sa o declari pt ca in mom compilarii declararea functiei va ajunge in fata compilarii
+
+// 2- js closure
+function makeCounter(){
+    let count = 0
+    return function(){
+        count++
+        return count
+    }
+}
+makeCounter()
+makeCounter()
+console.log(makeCounter())
+//inside function have access to variable from parent scope
+
+// 3- let, var, const
+//    const - not able to be reassigned any another value
+//    let - variable with local scope - see loop functions - you are not able to use that variable outside the loop
+//    var - reassigned variable with global scope use
+
+// 4- data type, differences, explanation
+// primitive - boolean, number, string, null
+
+// 5-js AbortController
+// to abort requests from backend if the process it's to longer
+
+// 6- this, explanation
+const obj={
+    name:'bob',
+    age:10
+    birthday(){
+        this.age++
+    }
+}
+obj.birthday()
+
+// 7- arrow function, explanation, usege
+// const numeVar = (params)=>{function block}
+
+// 8- async await
+
+// 9- promises
+// DECI fetch() are deja predefinite promisiuni
+// Promisiunile sunt obiecte ce reprezinta valoarea finala dintr-o operatiune asincrona, deci gestioneaza rezultatele si erorile
+const myPromise = new Promise((resolve, reject) => {
+    // Operațiunea asincronă aici
+    if (/* operațiunea a reușit */) {
+        resolve(value); // Îndeplinește promisiunea cu o valoare
+    } else {
+        reject(error); // Respinge promisiunea cu un motiv de eroare
+    }
+});
+myPromise
+    .then(value => {
+        // Cod care se execută pentru o promisiune îndeplinită
+        console.log(value);
+    })
+    .catch(error => {
+        // Cod care se execută pentru o promisiune respinsă
+        console.error(error);
+    })
+    .finally(() => {
+        // Cod care se execută indiferent de rezultat
+        console.log('Operațiunea a fost încercată');
+    });
+
+
+// 10-hight order function  + - js scope
+// a function who return other function
+function makeCounter(){
+    //parent
+    return ()=>{
+        //2
+        return ()=>{
+            //3
+            return ()=>{
+
+            }
+        }
+    }
+}
+
+// 11- what is a class, what is a object, differences between them
+// obiectul este instanta clasei, clasa este setul de reguli care va defini obiectul atunci cand aplicatia va rula
+
+// 12- typescript
+// type safety  - add types to your property
+//----------------------------------------------------------------------------------------------------
+
+// 1- http meaning, explanation
+// upper layer from OSI model, hyper text transfer protocol to comunicate between servers and client
+
+// 2- rest api
+// a server with code that allow you to interact with them by using JSON data
+
+// 3- CRUD, meaning, explanation (GET,POST,PUT,DELETE)
+https://myapi.com
+POST@/users - {}
+GET@/users - []
+PUT@/users/:userId - {}
+DELETE@/users/:userId
+
+// 4- cache
+// mechanism to save the data local to the client - for faster acces to them for the browser
+// cache-ul browserului, cache-ul aplicatiei, cache-ul hardware
+// deci - date salvate local in browser sau aplicatie ca la urmatoarele requesturi sa afiseze datele din local
+
+// 5- cookies
+// Sunt date transmise de server catre browserul utilizatorului (unde le stocheaza) - aceste cookie-uri vor fi
+// trimise in headere la fiecare request al utilizat catre server - astfel serverul recunoaste browserul
+//    Cookie-uri de sesiunie auth si Cookie-uri de urmarire
+// there are elements from header request with some information about the client
+// session auth token - we can put in a cookie
+
+// 5- query methods
+// https://google.com/search?f=javascript
+
+
+// REACT
+// 1- state
+//state-ul reprezintă o colecție de date sau variabile care controlează comportamentul unui component, 
+//și care pot fi modificate în timpul ciclului de viață al componentei, ducând la re-renderizarea acesteia atunci când se schimbă.
+
+// 2- react lifecycle methods/hooks
+// when the component are created - you can mounted
+
+// 3- react hooks
+
+// 4- react portal 
+//- portalurile sunt folosite pt randarea elementelor in afara ierarhiei DOM obisnuite 
+//- util pt: modaluri, pop-uri si tooltip-uri
+
+// 5- virtual dom and difference vs real dom
+// este o reprezentare structurata a paginii web in arbore de noduri - fiecare nod este un element
+// in dom-ul real fiecare schimbare adusa de UI duce la re-renderizarea intregului DOM
+// in dom-ul virtual din react - compara DOM-ul cu o versiune anterioara si editeaza dom-ul real doar unde sunt modificari
+
+// 6- class component vs functional component
+// functional components to be able to use Hooks
