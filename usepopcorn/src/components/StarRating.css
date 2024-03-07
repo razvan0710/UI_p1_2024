@@ -1,0 +1,47 @@
+.containerStyle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.starContainerStyle {
+  display: flex; /* Așează elementele copil într-o linie */
+  justify-content: center; /* Centrează elementele pe orizontală */
+  align-items: center; /* Centrează elementele pe verticală */
+  gap: 10px; /* Spațiu între steluțe */
+}
+
+dialog[open] {
+  border: none; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+  border-radius: 8px; /* Colțuri rotunjite */
+  position: fixed; /* Poziționare fixă pentru a asigura că este pe centrul ecranului */
+  top: 30%; /* Poziționează la jumătatea înălțimii viewport-ului */
+  left: 50%; /* Poziționează la jumătatea lățimii viewport-ului */
+  transform: translate(-50%, -50%); /* Centrarea efectivă, compensând dimensiunile proprii */
+  height: fit-content;
+  width: fit-content;
+  padding: 40px; /* Spațiere internă pentru conținut */
+  box-sizing: border-box; /* Asigură că padding-ul și border-ul sunt incluse în lățime */
+  background: #757474; /* Fundal alb */
+  overflow-y: auto; /* Permite scroll vertical dacă conținutul depășește înălțimea */
+}
+
+dialog[open]::backdrop {
+  background-color: rgba(0, 0, 0, 0.5); /* Fundal semi-transparent pentru restul paginii */
+}
+
+dialog button {
+  /* Stiluri pentru butonul de închidere */
+  cursor: pointer; /* Schimbă cursorul pentru a indica acțiunea */
+  padding: 8px 16px; /* Spațiere internă pentru buton */
+  
+  border: none; /* Elimină border-ul implicit */
+  background-color: #f0db1d; /* Un exemplu de culoare de fundal */
+  color: #0f0f0f; /* Culoare text */
+  border-radius: 4px; /* Colțuri rotunjite pentru buton */
+}
+
+dialog button:hover {
+  background-color: #866f09; /* Schimbă culoarea de fundal la hover */
+}
