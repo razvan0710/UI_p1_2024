@@ -10,3 +10,29 @@ Static version of react (without states)
     Global state - state that is changing in the app
 
 3. Derived state- state that is calculated from other state (don't use useState when is not necessary)
+
+
+4. Components are from 3 categories:
+    - presentational components
+    - stateful components
+    - structural components
+
+5. How React works behind the scene
+ - see in word
+IMPORTANT NOTE: See key prop - to allow react to distinguish between multiple 
+
+Pure components:
+- side effect: dependency on or modification of any data
+outside the function 
+- pure function: a function that has no side effects
+
+RULES FOR RENDER LOGIC:
+- components must be pure in render logic
+- render logic must produce no side effects
+
+In render logic:
+- do not perform network request
+- do not start timers
+- do not directly use the DOM api
+- do not mutate objects or variables
+- do not update state
